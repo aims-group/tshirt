@@ -1,0 +1,12 @@
+base_url: /
+media_root: media
+media_url: /media
+context:
+  data:
+    menu:
+      - title: Home
+        url: index.html
+      - title: First steps
+        url: first-steps.html
+      - title: About
+        url: about.html

@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Title</title>
-    <link rel="stylesheet" href="../content/media/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="media/css/styles.css" type="text/css">
     <!-- favicon - needs to have the http://full_path link -->
     <link rel="icon" type="image/png" href="">
 
@@ -17,7 +17,7 @@
 
       <div id="header" style="overflow: hidden">
         <div id="logo" style="float: left; margin-right: 20px; margin-left: -10px"> 
-          <a href="#"><img src="../content/media/images/square.gif" width="70" height="70" border="0"></a>
+          <a href="#"><img src="media/images/square.gif" width="70" height="70" border="0"></a>
         </div>
         <div>
           <div class="title">Title</div>
@@ -30,7 +30,11 @@
 
       <div class="lsidebar">
         <ul>
-          <li><a href="#">Nav Links</a></li>
+          <li><a href="#">Navigation</a></li>
+          {% for menu_item in menu -%}
+              <li><a {% if (menu_item.url == resource.url) %}class="selected"{% endif -%}
+                  href="{{ content_url(menu_item.url) }}">{{ menu_item.title }}</a></li>
+          {%- endfor %}
         </ul>
       </div> <!-- lsidebar -->
 
@@ -44,16 +48,17 @@
 
       <br class="clearfloat" />
       <div id="footer">
-        <div >
+        <div>
           <div class="projects">
             <a href="http://www-pcmdi.llnl.gov" target="_other">PCMDI</a> &middot;
             <a href="http://cmip-pcmdi.llnl.gov/cmip5/" target="_other">CMIP5</a> &middot;
             <a href="http://www.llnl.gov" target="_other">LLNL</a> &middot;
             <a href="https://www.llnl.gov/disclaimer.html" target="_other">Privacy &amp; Legal Notice</a> &middot;
             <a>LLNL-WEB-460643 &nbsp;&nbsp;&nbsp; </a &middot;></div>
-          </div>
-        </div> <!-- footer -->
+          </div> <!-- projects -->
+        </div>
+      </div> <!-- footer -->
 
-      </div> <!-- body -->
-    </body>
-  </html>
+    </div> <!-- body -->
+  </body>
+</html>
